@@ -8,8 +8,8 @@ GREEN='\033[0;32m'
 GRAY='\033[1;30m'
 NC='\033[0m' # No Color
 
-echo -e "\n${RED}Running installation of OpenJDK 11...${NC}\n"
+echo -e "\n${RED}Running installation of OpenJDK 13...${NC}\n"
 
-sudo apt install openjdk-11-jdk -y
+sudo apt install openjdk-13-jdk -y
 
-echo -e "${GREEN}Open JDK 11 installation complete.${NC}\n"
+echo -e "${GREEN}Open JDK 13 installation complete.${NC}\n"

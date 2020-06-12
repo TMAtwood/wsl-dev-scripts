@@ -15,7 +15,7 @@ echo -e "\n${RED}Running installation of Docker Dive...${NC}\n"
 CURRENT_DIR=$(pwd)
 
 # Set version to download
-VERSION="0.9.1"
+VERSION="0.9.2"
 
 cd ~
 

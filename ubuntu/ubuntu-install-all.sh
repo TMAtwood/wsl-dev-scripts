@@ -41,6 +41,9 @@ echo -e "\n${RED}Running the rest of the installations...${NC}\n"
 # Install utilities
 . ubuntu-install-utils.sh
 
+# Install AZCopyCLI
+. ubuntu-install-azcopy.sh
+
 # Install Azure CLI
 . ubuntu-install-azure-cli.sh
 
@@ -51,7 +54,7 @@ echo -e "\n${RED}Running the rest of the installations...${NC}\n"
 . ubuntu-install-aws-shell.sh
 
 # Install Docker
-. ubuntu-install-docker.sh
+# . ubuntu-install-docker.sh
 
 # Install .NET Core 3.0 with FAKE command-line tooling
 . ubuntu-install-dotnet-core-sdk.sh
@@ -133,7 +136,7 @@ sudo pwsh -File ubuntu-install-powershell-modules.sh
 . ubuntu-install-ruby.sh
 
 # Install Hashicorp Consul
-. ubuntu-install-consult.sh
+. ubuntu-install-consul.sh
 
 # Install Hashicorp Vault
 . ubuntu-install-vault.sh
@@ -149,7 +152,7 @@ dotnet tool install --global GitVersion.Tool --version 5.1.2-beta1.2
 
 # Install WSL configuration as the very last step as it binds /mnt/c to /c, and
 # that does not work well halfway in an installation!
-. ubuntu-install-wsl-conf.sh
+#. ubuntu-install-wsl-conf.sh
 
 # Update, upgrade, and autoremove
 . ubuntu-update-and-upgrade.sh
