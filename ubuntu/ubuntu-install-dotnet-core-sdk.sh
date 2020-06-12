@@ -25,15 +25,10 @@ sudo apt-get install dotnet-sdk-3.1 -y
 sudo apt-get install fsharp -y
 sudo apt-get update -y
 
-
-
-
-
-
 # Install AWS ECS Tools
 dotnet tool install -g Amazon.ECS.Tools
 
-# Install AWS Lambda Tools 
+# Install AWS Lambda Tools
 dotnet tool install -g Amazon.Lambda.Tools
 
 # Install Coverlet
@@ -50,7 +45,7 @@ dotnet new -i "fake-template::*"
 dotnet tool install -g dotnet-fsharplint
 
 # Install GitVersion
-dotnet tool install -g GitVersion.Tool --version 5.1.3
+dotnet tool install -g GitVersion.Tool
 
 # Install Paket
 dotnet tool install -g paket
@@ -71,10 +66,10 @@ dotnet tool install -g dotnet-sshdeploy
 dotnet tool install -g powershell
 
 # Install Report Generator
-dotnet tool install -g reportgenerator
+# dotnet tool install -g reportgenerator
 
 # Install XUnit CLI
-dotnet tool install -g xunit-cli --add-source https://www.myget.org/F/natemcmaster/api/v3/index.json 
+dotnet tool install -g xunit-cli
 
 sudo rm ~/*deb*
 

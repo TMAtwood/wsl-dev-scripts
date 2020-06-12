@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 echo -e "\n${RED}Running installation of Packer...${NC}\n"
 
 # Set version to download
-VERSION="1.5.4"
+VERSION="1.6.0"
 
 # Save current directory
 CURRENT_DIR=$(pwd)

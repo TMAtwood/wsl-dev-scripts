@@ -10,9 +10,9 @@ NC='\033[0m' # No Color
 echo -e "\n${RED}Running installation of Terraform...${NC}\n"
 
 # Set version to download
-VERSION="0.12.23"
+VERSION="0.12.26"
 
-# Save current d    irectory
+# Save current directory
 CURRENT_DIR=$(pwd)
 
 cd ~

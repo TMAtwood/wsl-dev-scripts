@@ -13,7 +13,7 @@ echo -e "\n${RED}Running installation of Go...${NC}\n"
 CURRENT_DIR=$(pwd)
 
 # Set version to download
-VERSION="1.14"
+VERSION="1.14.3"
 
 cd ~
 
