@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 echo -e "\n${RED}Running installation of Vault...${NC}\n"
 
 # Set version to download
-VERSION="1.4.1"
+VERSION="1.5.3"
 
 # Save current directory
 CURRENT_DIR=$(pwd)
