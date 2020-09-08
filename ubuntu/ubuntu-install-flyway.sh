@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 
 echo -e "\n${RED}Running installation of Flyway command-line...${NC}\n"
 
-FLYWAY_VERSION="6.4.2"
+FLYWAY_VERSION="6.5.5"
 
 # Save current directory
 CURRENT_DIR=$(pwd)
