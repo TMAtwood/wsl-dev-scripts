@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 # Install AZ Copy 10
 
 # For colors, see https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
@@ -14,12 +14,13 @@ echo -e "\n${RED}Running installation of AzCopy v10...${NC}\n"
 CURRENT_DIR=$(pwd)
 
 # Set version to download
-VERSION="10.4.3"
+. ./get_latest_release.sh
+VERSION=$(get_latest_release "Azure/azure-storage-azcopy")
+VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
 
 cd ~
 
 # Download AzCopy
-# wget -O downloadazcopy-v10-linux https://github.com/Azure/azure-storage-azcopy/releases/tag/10.4.3
 wget https://aka.ms/downloadazcopy-v10-linux
 
 # Expand Archive
@@ -31,19 +32,19 @@ sudo rm /usr/bin/azcopy
 # Move AzCopy to the destination you want to store it
 sudo cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
 
+sudo chown 1000 /usr/bin/azcopy
 
+# # Download AzCopy
+# wget -O downloadazcopy-v10-linux.tar https://github.com/Azure/azure-storage-azcopy/releases/tag/${VERSION}
 
-# Download AzCopy
-wget -O downloadazcopy-v10-linux.tar https://github.com/Azure/azure-storage-azcopy/releases/tag/${VERSION}
+# # Expand Archive
+# tar -xvf downloadazcopy-v10-linux.tar
 
-# Expand Archive
-tar -xvf downloadazcopy-v10-linux.tar
+# # (Optional) Remove existing AzCopy version
+# sudo rm /usr/bin/azcopy
 
-# (Optional) Remove existing AzCopy version
-sudo rm /usr/bin/azcopy
-
-# Move AzCopy to the destination you want to store it
-sudo cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
+# # Move AzCopy to the destination you want to store it
+# sudo cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
 
 # Clean up
 sudo rm downloadazcopy-v10-linux.tar

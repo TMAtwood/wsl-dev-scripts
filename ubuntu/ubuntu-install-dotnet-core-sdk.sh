@@ -22,6 +22,7 @@ sudo add-apt-repository universe -y
 sudo apt-get install apt-transport-https -y
 sudo apt-get update -y
 sudo apt-get install dotnet-sdk-3.1 -y
+sudo apt-get install dotnet-sdk-5.0 -y
 sudo apt-get install fsharp -y
 sudo apt-get update -y
 
@@ -70,6 +71,9 @@ dotnet tool install -g powershell
 
 # Install XUnit CLI
 dotnet tool install -g xunit-cli
+
+#curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 3.1
+#curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 5.0
 
 sudo rm ~/*deb*
 

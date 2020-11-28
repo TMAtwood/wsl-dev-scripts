@@ -25,7 +25,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl config use-context docker-for-desktop
 
 # Install Helm
-curl -LO https://git.io/get_helm.sh
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
 

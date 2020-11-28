@@ -11,7 +11,7 @@ GREEN='\033[0;32m'
 GRAY='\033[1;30m'
 NC='\033[0m' # No Color
 
-VERSION="2019.12"
+VERSION="2020.11"
 
 # Save current directory
 CURRENT_DIR=$(pwd)

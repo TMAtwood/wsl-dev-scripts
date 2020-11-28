@@ -13,11 +13,24 @@ NC='\033[0m' # No Color
 
 echo -e "\n${RED}Running installation of Gruntwork Installer and Terratest...${NC}\n"
 
-GRUNTWORK_VERSION="0.0.23"
-TERRATEST_VERSION="0.23.4"
+# Run get_latest_release.sh
+. ./get_latest_release.sh
 
-curl -LsS https://raw.githubusercontent.com/gruntwork-io/gruntwork-installer/master/bootstrap-gruntwork-installer.sh | bash /dev/stdin --version v${GRUNTWORK_VERSION}
+# Save current directory
+CURRENT_DIR=$(pwd)
 
-gruntwork-install --binary-name 'terratest_log_parser' --repo 'https://github.com/gruntwork-io/terratest' --tag v${TERRATEST_VERSION}
+# Set version to download
+GRUNTWORK_INSTALLER_VERSION=$(get_latest_release "gruntwork-io/gruntwork-installer")
+# GRUNTWORK_INSTALLER_VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
+
+TERRATEST_VERSION=$(get_latest_release "gruntwork-io/terratest")
+# TERRATEST_VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
+
+curl -LsS https://raw.githubusercontent.com/gruntwork-io/gruntwork-installer/master/bootstrap-gruntwork-installer.sh | bash /dev/stdin --version "${GRUNTWORK_INSTALLER_VERSION}"
+
+gruntwork-install --binary-name 'terratest_log_parser' --repo 'https://github.com/gruntwork-io/terratest' --tag "${TERRATEST_VERSION}"
+
+# Set back to the original current directory
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Gruntwork Installer and Terratest installation complete.${NC}\n"
