@@ -13,9 +13,9 @@ echo -e "\n${RED}Running installation of Go...${NC}\n"
 CURRENT_DIR=$(pwd)
 
 # Set version to download
-VERSION="1.15.3"
+VERSION="1.15.5"
 
-cd ~
+cd ~ || exit
 
 #Install Go
 wget "https://dl.google.com/go/go${VERSION}.linux-amd64.tar.gz"
@@ -52,6 +52,6 @@ sudo apt-get install go-dep -y
 go get -u github.com/codesenberg/bombardier
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Go installation complete.${NC}\n"

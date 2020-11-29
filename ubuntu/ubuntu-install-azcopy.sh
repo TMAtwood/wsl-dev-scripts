@@ -27,24 +27,10 @@ wget https://aka.ms/downloadazcopy-v10-linux
 tar -xvf downloadazcopy-v10-linux
 
 # (Optional) Remove existing AzCopy version
-sudo rm /usr/bin/azcopy
+sudo rm /usr/local/bin/azcopy
 
 # Move AzCopy to the destination you want to store it
-sudo cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
-
-sudo chown 1000 /usr/bin/azcopy
-
-# # Download AzCopy
-# wget -O downloadazcopy-v10-linux.tar https://github.com/Azure/azure-storage-azcopy/releases/tag/${VERSION}
-
-# # Expand Archive
-# tar -xvf downloadazcopy-v10-linux.tar
-
-# # (Optional) Remove existing AzCopy version
-# sudo rm /usr/bin/azcopy
-
-# # Move AzCopy to the destination you want to store it
-# sudo cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
+sudo cp ./azcopy_linux_amd64_*/azcopy /usr/local/bin/
 
 # Clean up
 sudo rm downloadazcopy-v10-linux.tar
