@@ -68,7 +68,7 @@ dotnet tool install -g dotnet-sshdeploy
 dotnet tool install -g powershell
 
 # Install Report Generator
-# dotnet tool install -g reportgenerator
+dotnet tool install -g dotnet-reportgenerator-globaltool
 
 # Install XUnit CLI
 dotnet tool install -g xunit-cli

@@ -41,7 +41,7 @@ dotnet tool update -g dotnet-sshdeploy
 dotnet tool update -g powershell
 
 # Update Report Generator
-dotnet tool update -g reportgenerator
+dotnet tool update -g dotnet-reportgenerator-globaltool
 
 # Update XUnit CLI
 dotnet tool update -g xunit-cli
