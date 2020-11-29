@@ -1,0 +1,25 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.3.0  # Use the ref you want to point at
+    hooks:
+      - id: check-case-conflict
+      - id: check-toml
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: no-commit-to-branch
+        args: ["-b master -b develop"]
+      - id: trailing-whitespace
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.10
+    hooks:
+      - id: terraform-fmt
+      - id: terraform-validate
+      - id: gofmt
+      - id: golint
+      - id: shellcheck
+  # - repo: https://github.com/liquidxinc/pre-commit
+  #   rev: "0.1.0"
+  #   hooks:
+  #     - id: tfsec
