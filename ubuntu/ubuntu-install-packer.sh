@@ -9,27 +9,31 @@ NC='\033[0m' # No Color
 
 echo -e "\n${RED}Running installation of Packer...${NC}\n"
 
-# Set version to download
-VERSION="1.6.2"
+# Run get_latest_release.sh
+. ./get_latest_release.sh
 
 # Save current directory
 CURRENT_DIR=$(pwd)
 
-cd ~
+# Set version to download
+VERSION=$(get_latest_release "hashicorp/packer")
+VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
+
+cd ~ || exit
 
 sudo rm -rf ~/*.zip*
 
-wget -q  "https://releases.hashicorp.com/packer/${VERSION}/packer_${VERSION}_linux_amd64.zip"
+wget -q  "https://releases.hashicorp.com/packer/${VERSION_WITHOUT_V}/packer_${VERSION_WITHOUT_V}_linux_amd64.zip"
 
 unzip "packer_${VERSION}_linux_amd64.zip"
 
 sudo mv packer /usr/local/bin/
 
-cd ~
+cd ~ || exit
 
 sudo rm -rf ~/*.zip*
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Packer installation complete.${NC}\n"

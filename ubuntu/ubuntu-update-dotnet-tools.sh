@@ -1,47 +1,47 @@
 #! /usr/bin/env bash
 
-# Install AWS ECS Tools
+# Update AWS ECS Tools
 dotnet tool update -g Amazon.ECS.Tools
 
-# Install AWS Lambda Tools
+# Update AWS Lambda Tools
 dotnet tool update -g Amazon.Lambda.Tools
 
-# Install Coverlet
+# Update Coverlet
 dotnet tool update -g coverlet.console
 
-# Install DepGuard
+# Update DepGuard
 dotnet tool update -g depguard
 
-# Install FAKE CLI
+# Update FAKE CLI
 dotnet tool update -g fake-cli
 dotnet new -i "fake-template::*"
 
-# Install F# Lint
+# Update F# Lint
 dotnet tool update -g dotnet-fsharplint
 
-# Install GitVersion
+# Update GitVersion
 dotnet tool update -g GitVersion.Tool
 
-# Install Paket
+# Update Paket
 dotnet tool update -g paket
 
-# Install Nuget Package Search
+# Update Nuget Package Search
 dotnet tool update -g dotnet-search
 
-# Install .NET Data Encryption Tool
+# Update .NET Data Encryption Tool
 dotnet tool update -g dotnet-encrypto
 
-# Install .NET SonarScanner
+# Update .NET SonarScanner
 dotnet tool update -g dotnet-sonarscanner
 
-# Install .NET ssh deployment tool
+# Update .NET ssh deployment tool
 dotnet tool update -g dotnet-sshdeploy
 
-# Install PowerShell Core
+# Update PowerShell Core
 dotnet tool update -g powershell
 
-# Install Report Generator
+# Update Report Generator
 dotnet tool update -g reportgenerator
 
-# Install XUnit CLI
+# Update XUnit CLI
 dotnet tool update -g xunit-cli

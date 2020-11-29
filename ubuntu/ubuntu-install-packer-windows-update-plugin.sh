@@ -9,11 +9,10 @@ NC='\033[0m' # No Color
 
 echo -e "\n${RED}Running installation of Packer Windows Update plug-in...${NC}\n"
 
-# Set version to download
-VERSION="0.8.0"
 
-# Save current directory
-CURRENT_DIR=$(pwd)
+VERSION=$(get_latest_release "kubernetes/kompose")
+VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
+
 
 cd ~
 

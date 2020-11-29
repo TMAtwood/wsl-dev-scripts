@@ -10,6 +10,6 @@ NC='\033[0m' # No Color
 
 echo -e "\n${RED}Running installation of MySQL client...${NC}\n"
 
-sudo apt install -y mysql-client-5.7
+sudo apt install -y mysql-client
 
 echo -e "${GREEN}MySQL client installation complete.${NC}\n"

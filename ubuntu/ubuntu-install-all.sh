@@ -41,6 +41,9 @@ echo -e "\n${RED}Running the rest of the installations...${NC}\n"
 # Install utilities
 . ubuntu-install-utils.sh
 
+# Install Homebrew
+. ubuntu-install-homebrew.sh
+
 # Install AZCopyCLI
 . ubuntu-install-azcopy.sh
 

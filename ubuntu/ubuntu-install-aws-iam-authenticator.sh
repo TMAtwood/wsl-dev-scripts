@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# Install Anchore CLI
+# Install AWS IAM Authenticator
 
 # NOTE: Not included in all as this script cannot be automated due to prompts during installation.
 
@@ -18,19 +18,7 @@ CURRENT_DIR=$(pwd)
 
 cd ~
 
-curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator
-
-# Check SHA256
-curl -o aws-iam-authenticator.sha256 https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator.sha256
-cat aws-iam-authenticator.sha256
-openssl sha1 -sha256 aws-iam-authenticator
-
-chmod +x ./aws-iam-authenticator
-sudo mv aws-iam-authenticator /usr/local/bin
-aws-iam-authenticator help
-
-# Clean up
-rm *.sha256
+brew install aws-iam-authenticator
 
 # Set back to the original current directory
 cd "$CURRENT_DIR"
