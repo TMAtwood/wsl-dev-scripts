@@ -10,16 +10,31 @@ NC='\033[0m' # No Color
 
 echo -e "\n${RED}Running installation of Flyway command-line...${NC}\n"
 
-FLYWAY_VERSION="6.5.5"
+FLYWAY_VERSION="7.3.0"
 
 # Save current directory
 CURRENT_DIR=$(pwd)
 
-cd ~ || exit
+cd ~
 
-brew install flyway
+wget https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${FLYWAY_VERSION}/flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz
+tar xvfz flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz
+chmod +x flyway-${FLYWAY_VERSION}
+
+DIRECTORY="/usr/local/bin/flyway-${FLYWAY_VERSION}"
+
+if [[ -d "$DIRECTORY" ]]
+then
+    echo -e "\n${YELLOW}Deleting previous Flyway directory...${NC}\n"
+    sudo rm -rf $DIRECTORY
+fi
+
+sudo mv flyway-${FLYWAY_VERSION} /usr/local/bin
+sudo rm flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz
+sudo rm /usr/local/bin/flyway
+sudo ln -s /usr/local/bin/flyway-${FLYWAY_VERSION}/flyway /usr/local/bin/
 
 # Set back to the original current directory
-cd "$CURRENT_DIR" || exit
+cd "$CURRENT_DIR"
 
 echo -e "${GREEN}Flyway command-line installation complete.${NC}\n"
