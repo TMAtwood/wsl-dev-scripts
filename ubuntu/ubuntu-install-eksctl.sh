@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Install eksctl
 
@@ -16,7 +16,7 @@ CURRENT_DIR=$(pwd)
 
 echo -e "\n${RED}Running installation of eksctl...${NC}\n"
 
-cd ~
+cd ~ || exit
 
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
@@ -24,6 +24,6 @@ sudo mv /tmp/eksctl /usr/local/bin
 # Clean up - none
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Eksctl installation complete.${NC}\n"

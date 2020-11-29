@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # For colors, see https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
 RED='\033[0;31m'
@@ -11,11 +11,12 @@ echo -e "\n${RED}Running installation of .NET Core SDK...${NC}\n"
 
 # Save current directory
 CURRENT_DIR=$(pwd)
-cd ~
+
+cd ~ || exit
 
 sudo dpkg --purge packages-microsoft-prod && sudo dpkg -i packages-microsoft-prod.deb
 
-wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 
 sudo add-apt-repository universe -y
@@ -78,6 +79,6 @@ dotnet tool install -g xunit-cli
 sudo rm ~/*deb*
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}.NET Core SDK installation complete.${NC}\n"

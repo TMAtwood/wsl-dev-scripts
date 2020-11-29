@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Install Anaconda 3
 
@@ -18,7 +18,8 @@ CURRENT_DIR=$(pwd)
 
 echo -e "\n${RED}Running installation of Anaconda...${NC}\n"
 
-cd ~
+cd ~ || exit
+
 rm Anaconda*.*
 
 wget "https://repo.continuum.io/archive/Anaconda3-${VERSION}-Linux-x86_64.sh"
@@ -31,6 +32,6 @@ chmod +x "Anaconda3-${VERSION}-Linux-x86_64.sh"
 sudo rm Anaconda*.*
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Anaconda installation complete.${NC}\n"

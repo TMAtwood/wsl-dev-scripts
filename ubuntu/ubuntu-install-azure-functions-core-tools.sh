@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 # Install Azure Core Functions Tools
 
 RED='\033[0;31m'

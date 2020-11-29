@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 # Install bash git prompt including number of changes
 
 # For colors, see https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
@@ -13,7 +13,7 @@ echo -e "\n${RED}Running installation of bash git prompt...${NC}\n"
 # Save current directory
 CURRENT_DIR=$(pwd)
 
-cd ~
+cd ~ || exit
 
 sudo rm -rf ~/.bash-git-prompt
 
@@ -42,6 +42,6 @@ fi
 source ~/.bashrc
 
 # Set back to the original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Bash git prompt installation complete.${NC}\n"

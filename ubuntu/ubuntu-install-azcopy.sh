@@ -14,11 +14,11 @@ echo -e "\n${RED}Running installation of AzCopy v10...${NC}\n"
 CURRENT_DIR=$(pwd)
 
 # Set version to download
-. ./get_latest_release.sh
-VERSION=$(get_latest_release "Azure/azure-storage-azcopy")
-VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
+# . ./get_latest_release.sh
+# VERSION=$(get_latest_release "Azure/azure-storage-azcopy")
+# VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
 
-cd ~
+cd ~ || exit
 
 # Download AzCopy
 wget https://aka.ms/downloadazcopy-v10-linux
@@ -37,6 +37,6 @@ sudo rm downloadazcopy-v10-linux.tar
 sudo rm -rf ./azcopy_linux_amd64_*
 
 # Set back to the original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}AzCopy v10 installation complete.${NC}\n"
