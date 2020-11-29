@@ -7,6 +7,8 @@ GREEN='\033[0;32m'
 GRAY='\033[1;30m'
 NC='\033[0m' # No Color
 
+echo -e "\n${RED}Running installation of Packer...${NC}\n"
+
 # Run get_latest_release.sh
 . ./get_latest_release.sh
 
