@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Run update and upgrade again to wrap up
 sudo apt-get update -y
@@ -118,7 +118,7 @@ echo -e "\n${RED}Running the rest of the installations...${NC}\n"
 sudo pwsh -File ubuntu-install-powershell-modules.sh
 
 # Install Python 3.8 and update-alternatives
-. ubuntu-install-python3.8-and-update-alternatives.sh
+. ubuntu-install-python3.9-and-update-alternatives.sh
 
 # Install Python3 pip
 . ubuntu-install-python3-pip.sh

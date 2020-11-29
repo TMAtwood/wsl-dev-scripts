@@ -1,8 +1,11 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 # Update, upgrade, and autoremove
 
 # Update the apt package list.
 sudo apt-get update
+
+# Brew update
+brew update
 
 # Upgrade the apt package list.
 sudo apt-get -y upgrade

@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Install AWS Command-Line
 # Run after Python 3 pip installation only!

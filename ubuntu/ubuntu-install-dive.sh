@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Dive must be installed after Go has been installed.
 
@@ -21,7 +21,7 @@ CURRENT_DIR=$(pwd)
 VERSION=$(get_latest_release "wagoodman/dive")
 VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
 
-cd ~
+cd ~ || exit
 
 wget https://github.com/wagoodman/dive/releases/download/v${VERSION_WITHOUT_V}/dive_${VERSION_WITHOUT_V}_linux_amd64.deb
 sudo apt install ./dive_${VERSION}_linux_amd64.deb
@@ -30,6 +30,6 @@ sudo apt install ./dive_${VERSION}_linux_amd64.deb
 sudo rm *.deb
 
 # Set back to the original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Dive installation complete.${NC}\n"

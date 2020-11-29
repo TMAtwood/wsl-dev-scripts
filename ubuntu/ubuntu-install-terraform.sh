@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 # Install Terraform
 
 RED='\033[0;31m'
@@ -19,7 +19,7 @@ CURRENT_DIR=$(pwd)
 VERSION=$(get_latest_release "hashicorp/terraform")
 VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
 
-cd ~
+cd ~ || exit
 
 sudo rm -rf ~/*.zip*
 
@@ -29,7 +29,7 @@ unzip "terraform_${VERSION_WITHOUT_V}_linux_amd64.zip"
 
 sudo mv terraform /usr/local/bin/
 
-cd ~
+cd ~ || exit
 
 sudo rm -rf ~/*.zip*
 

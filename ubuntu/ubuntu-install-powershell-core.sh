@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 # Install PowerShell Core
 
 # For colors, see https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
@@ -12,7 +12,7 @@ echo -e "\n${RED}Running installation of PowerShell Core...${NC}\n"
 
 # Save current directory
 CURRENT_DIR=$(pwd)
-cd ~
+cd ~ || exit
 
 # Download the Microsoft repository GPG keys
 wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
@@ -29,6 +29,6 @@ sudo apt-get install -y powershell
 sudo rm -rf ~/*deb*
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}PowerShell Core installation complete.${NC}\n"

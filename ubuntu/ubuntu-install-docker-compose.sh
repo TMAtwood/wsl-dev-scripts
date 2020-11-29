@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Docker Compose installation.  Run after Python installation!
 
@@ -14,11 +14,11 @@ echo -e "\n${RED}Running installation of Docker Compose...${NC}\n"
 # Save current directory
 CURRENT_DIR=$(pwd)
 
-cd ~
+cd ~ || exit
 
 pip install --user docker-compose
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "\n${GREEN}Docker Compose installation complete.${NC}\n"

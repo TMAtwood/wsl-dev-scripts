@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 #Install Node.js
 
 # For colors, see https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
@@ -9,6 +9,10 @@ GRAY='\033[1;30m'
 NC='\033[0m' # No Color
 
 echo -e "\n${RED}Running installation of Node.js and NPM...${NC}\n"
+
+# Save current directory
+CURRENT_DIR=$(pwd)
+cd ~ || exit
 
 sudo apt-get install nodejs -y
 sudo apt-get install npm -y
@@ -23,6 +27,6 @@ sudo npm install --global flatted --strict-ssl
 sudo npm uninstall --global circular-json
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Node.js and NPM installation complete.${NC}\n"
