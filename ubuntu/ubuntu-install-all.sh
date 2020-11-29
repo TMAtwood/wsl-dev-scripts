@@ -87,6 +87,9 @@ echo -e "\n${RED}Running the rest of the installations...${NC}\n"
 # Install Dive - Must be installed after Go
 . ubuntu-install-dive.sh
 
+# Install k9s
+. ubuntu-install-k9s.sh
+
 # Install Kompose
 . ubuntu-install-kompose.sh
 
