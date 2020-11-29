@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 # Installs connection to Docker Desktop
 
 # Prerequisites
@@ -24,7 +24,8 @@ sudo apt-get install -y software-properties-common
 
 # Save current directory
 CURRENT_DIR=$(pwd)
-cd ~
+
+cd ~ || exit
 
 # Download and add Docker's official public PGP key.
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -67,6 +68,6 @@ fi
 source ~/.bashrc
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Docker installation complete.${NC}\n"

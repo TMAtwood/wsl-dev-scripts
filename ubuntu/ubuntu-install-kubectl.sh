@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # For colors, see https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
 RED='\033[0;31m'
@@ -12,7 +12,7 @@ echo -e "\n${RED}Running installation of Kubectl...${NC}\n"
 # Save current directory
 CURRENT_DIR=$(pwd)
 
-cd ~
+cd ~ || exit
 
 sudo apt install curl -y
 
@@ -49,11 +49,11 @@ then
   echo -e "$WRITEFILE" >> ~/.bashrc
 fi
 
-cd ~
+cd ~ | exit
 
 rm *.*
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "\n${GREEN}Kubectl installation complete.${NC}\n"

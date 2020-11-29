@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 # Install Packer
 
 RED='\033[0;31m'
@@ -25,7 +25,7 @@ sudo rm -rf ~/*.zip*
 
 wget -q  "https://releases.hashicorp.com/packer/${VERSION_WITHOUT_V}/packer_${VERSION_WITHOUT_V}_linux_amd64.zip"
 
-unzip "packer_${VERSION}_linux_amd64.zip"
+unzip "packer_${VERSION_WITHOUT_V}_linux_amd64.zip"
 
 sudo mv packer /usr/local/bin/
 

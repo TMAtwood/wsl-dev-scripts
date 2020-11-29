@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 # Install Vault
 
 RED='\033[0;31m'
@@ -9,27 +9,28 @@ NC='\033[0m' # No Color
 
 echo -e "\n${RED}Running installation of Vault...${NC}\n"
 
-# Set version to download
-VERSION="1.5.3"
+# Run get_latest_release.sh
+. ./get_latest_release.sh
 
 # Save current directory
 CURRENT_DIR=$(pwd)
 
-cd ~
+# Set version to download
+VERSION=$(get_latest_release "hashicorp/vault")
+VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
+
+cd ~ || exit
 
 sudo rm -rf ~/*.zip*
 
-wget -q  "https://releases.hashicorp.com/vault/${VERSION}/vault_${VERSION}_linux_amd64.zip"
+wget -q  "https://releases.hashicorp.com/vault/${VERSION_WITHOUT_V}/vault_${VERSION_WITHOUT_V}_linux_amd64.zip"
 
-unzip "vault_${VERSION}_linux_amd64.zip"
+unzip "vault_${VERSION_WITHOUT_V}_linux_amd64.zip"
 
 sudo chown root:root vault
 sudo mv vault /usr/local/bin/
 
-cd ~
-
 sudo rm -rf ~/*.zip*
-
 
 # Get Docker host port included in bashrc if not in there yet
 SEARCHLINE="export VAULT_ADDR='http://127.0.0.1:8200'"
@@ -47,6 +48,6 @@ then
 fi
 
 # Set back to original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Vault installation complete.${NC}\n"

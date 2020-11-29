@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Update AWS ECS Tools
 dotnet tool update -g Amazon.ECS.Tools

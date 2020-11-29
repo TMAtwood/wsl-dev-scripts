@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 # Install Flyway command-line
 
 # For colors, see https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
@@ -15,11 +15,11 @@ FLYWAY_VERSION="6.5.5"
 # Save current directory
 CURRENT_DIR=$(pwd)
 
-cd ~
+cd ~ || exit
 
 brew install flyway
 
 # Set back to the original current directory
-cd "$CURRENT_DIR"
+cd "$CURRENT_DIR" || exit
 
 echo -e "${GREEN}Flyway command-line installation complete.${NC}\n"

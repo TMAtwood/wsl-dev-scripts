@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Install Python 3.8 and setup Python update-alternatives
 
@@ -14,20 +14,22 @@ NC='\033[0m' # No Color
 # Save current directory
 CURRENT_DIR=$(pwd)
 
-echo -e "\n${RED}Running installation of Python 3.8 and Python update-alternatives...${NC}\n"
+echo -e "\n${RED}Running installation of Python 3.9 and Python update-alternatives...${NC}\n"
 
 # Install Python 3.8
 sudo apt update
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa -y
-sudo apt install python3.8 -y
+sudo apt install python3.9 -y
 python3.8 --version
 
-# Install update-alternatives for Python and default to v3.8.1
+# Install update-alternatives for Python and default to v3.9
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 3
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 4
+sudo update-alternatives --set python "/usr/bin/python3.9"
 update-alternatives --list python
 python --version
 
-echo -e "\n${GREEN}Python 3.8 and Python update-alternatives installation complete.${NC}\n"
+echo -e "\n${GREEN}Python 3.9 and Python update-alternatives installation complete.${NC}\n"

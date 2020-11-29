@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Install Gruntwrok Installer
 # See https://github.com/gruntwork-io/gruntwork-installer
@@ -19,12 +19,11 @@ echo -e "\n${RED}Running installation of Gruntwork Installer and Terratest...${N
 # Save current directory
 CURRENT_DIR=$(pwd)
 
+cd ~ || exit
+
 # Set version to download
 GRUNTWORK_INSTALLER_VERSION=$(get_latest_release "gruntwork-io/gruntwork-installer")
-# GRUNTWORK_INSTALLER_VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
-
 TERRATEST_VERSION=$(get_latest_release "gruntwork-io/terratest")
-# TERRATEST_VERSION_WITHOUT_V=$(echo $VERSION | cut -d "v" -f 2)
 
 curl -LsS https://raw.githubusercontent.com/gruntwork-io/gruntwork-installer/master/bootstrap-gruntwork-installer.sh | bash /dev/stdin --version "${GRUNTWORK_INSTALLER_VERSION}"
 
