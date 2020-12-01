@@ -17,6 +17,8 @@ VERSION="1.15.5"
 
 cd ~ || exit
 
+rm -rf /usr/local/go
+
 #Install Go
 wget "https://dl.google.com/go/go${VERSION}.linux-amd64.tar.gz"
 sudo tar -xvf "go${VERSION}.linux-amd64.tar.gz"

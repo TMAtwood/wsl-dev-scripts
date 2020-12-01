@@ -22,7 +22,7 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
-kubectl config use-context docker-for-desktop
+kubectl config use-context docker-desktop
 
 # Install Helm
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
